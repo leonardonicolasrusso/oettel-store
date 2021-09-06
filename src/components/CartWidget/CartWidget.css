@@ -1,0 +1,13 @@
+.cartWidget{
+    display: flex;
+    border: 2px solid white;
+    padding: 5px;
+}
+.cartWidget__Icon{
+    width: 60px;
+    padding: 2px;
+}
+.cartWidget__Number{
+    color: black;
+    padding-right: 5px;
+}

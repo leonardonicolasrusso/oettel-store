@@ -1,0 +1,19 @@
+.Navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items:baseline;
+    width: 100%;
+    background-color: #fb9999;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+button{
+  color: white;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  margin-right: 10px;
+}
