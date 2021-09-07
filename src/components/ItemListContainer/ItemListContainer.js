@@ -1,9 +1,10 @@
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemListContainer.css'
 
-const ItemListContainer = ({greeting}) =>{
+const ItemListContainer = () =>{
     return(
         <div>
-            <p className="greeting">Hola: {greeting}!</p>
+            <ItemCount nombre="RELOJ" stock="10" initial="1"/>
         </div>
     )
 }
