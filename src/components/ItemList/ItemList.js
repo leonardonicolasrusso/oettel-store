@@ -1,3 +1,4 @@
+import { useState,useEffect} from 'react'
 import Item from '../Item/Item'
 import './ItemList.css'
 
@@ -5,39 +6,31 @@ import './ItemList.css'
 
 const ItemList = () => {
 
+    const productos = [
+        {id: 1, title: "Accesorios", price: 100},
+        {id: 2, title: "Lentes", price: 200},
+        {id: 3, title: "Reloj", price: 300}
+    ]
 
-//     const productos = [
-//         {id: 1, title: "Accesorios", price: 100},
-//         {id: 2, title: "Lente", price: 200},
-//         {id: 3, title: "Reloj", price: 300}
-//     ]
+    function delayProductos(){
+        return new Promise ((resolve, reject) => {
+            setTimeout(() => resolve(productos), 3000)
+        })
+    }
 
-//     function Item() {
-//         return new Promise ((resolve, reject) =>{
-//                 setTimeout(() => resolve(productos), 2000)
-//         })
-//     }
+    const [listaItems, setListItems] = useState([])
 
+    useEffect(() => {
+        const mostrarProductos = delayProductos()
 
-//     function itemList(){
-//         const list = Item()
-
-//         list.then(list => {
-//             list.map(articulos => <Item id={articulos.id} title={articulos.title} price={articulos.price} />)
-
-//         }, err =>{
-//             console.log(err)
-//         }).catch(err => 
-//             console.log(err)
-//         )
+        mostrarProductos.then(item => {
+            setListItems(item)
+        })
+    }, [])
     
-
-//     itemList()
-
-
     return(
         <div className="ItemList">
-            <Item />
+            {listaItems.map(p => <Item id={p.id} title={p.title} price={p.price}/>)}
         </div>
     )
 }
