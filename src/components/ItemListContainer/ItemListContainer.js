@@ -1,10 +1,13 @@
-import ItemCount from '../ItemCount/ItemCount'
+// import ItemCount from '../ItemCount/ItemCount'
+import ItemList from '../ItemList/ItemList'
+
 import './ItemListContainer.css'
 
 const ItemListContainer = () =>{
     return(
         <div>
-            <ItemCount nombre="RELOJ" stock="10" initial="1"/>
+            <ItemList />
+            {/* <ItemCount nombre="RELOJ" stock="10" initial="1"/> */}
         </div>
     )
 }

@@ -1,0 +1,13 @@
+.Card{
+    width: 200px;
+    border: 1px solid grey;
+    margin: 10px;
+    background-color: rgb(141, 216, 145);
+    padding: 10px;
+}
+.Card__btn{
+    color: black;
+    background-color: white;
+    font-size: 20px;
+    padding: 10px;
+}
