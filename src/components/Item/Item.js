@@ -9,18 +9,18 @@ const Item = ({id, title, price, detail}) => {
     return(
         <div className="Card">
             <div>
-                <img src={img} alt="img" style={{width: "100px"}}></img>
+                <img src={img} alt="img" style={{width: "300px"}}></img>
             </div>
-            <div>
-                <p>{title}</p>
-                <p>Descripcion: {detail}</p>
+            <div className="Card__info">
+                <p className="Card__info--title">{title}</p>
+                <p className="Card__info--description"><strong>Descripcion: </strong>{detail}</p>
+                <p className="Card__info--price">Precio: ${priceProduct}</p>
             </div>
-            <div>
+            
+            {/* USAR EN ITEM LIST CONTAINER */}
+            {/* <div>
                 <button className="Card__btn">Ver detalles</button>
-            </div>
-            <div>
-                <p>Precio: ${priceProduct}</p>
-            </div>
+            </div> */}
         </div>
     )
 }
