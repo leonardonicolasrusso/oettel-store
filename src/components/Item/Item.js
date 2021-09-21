@@ -1,24 +1,20 @@
 import './Item.css'
 
-const Item = ({id, title, price}) => {
-
-    const idProduct = parseInt(id);
-    const priceProduct = parseInt(price);
+const Item = ({name, price, img}) => {
 
     return(
         <div className="Card">
             <div>
-                <img alt="img"></img>
+                <img src={img} alt="img" style={{width: "150px"}}></img>
             </div>
             <div>
-                <p>{title}</p>
-                <p>Id: {idProduct}</p>
+                <p><strong>{name}</strong></p>
             </div>
             <div>
                 <button className="Card__btn">Ver detalles</button>
             </div>
             <div>
-                <p>Precio: ${priceProduct}</p>
+                <p>Precio: ${price}</p>
             </div>
         </div>
     )
