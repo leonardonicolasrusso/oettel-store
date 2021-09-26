@@ -1,26 +1,21 @@
 import './Item.css'
-import img from '../../assets/media/reloj-dama.jpg'
 
-const Item = ({id, title, price, detail}) => {
+const Item = ({item}) => {
 
-    const idProduct = parseInt(id);
-    const priceProduct = parseInt(price);
+    if(!item){
+        return(<h1>Cargando...</h1>)
+    }
 
     return(
         <div className="Card">
-            <div>
-                <img src={img} alt="img" style={{width: "300px"}}></img>
-            </div>
             <div className="Card__info">
-                <p className="Card__info--title">{title}</p>
-                <p className="Card__info--description"><strong>Descripcion: </strong>{detail}</p>
-                <p className="Card__info--price">Precio: ${priceProduct}</p>
-            </div>
-            
-            {/* USAR EN ITEM LIST CONTAINER */}
-            {/* <div>
+                <p className="Card__info--title"><strong>{item?.title}</strong></p>
+                <img src={item?.pictureUrl} alt="imagen" style={{width: "150px"}}></img>
+                <p><strong>{item?.description}</strong></p>
+                <p className="Card__info--price">Precio: <strong>${item?.price}</strong></p>
                 <button className="Card__btn">Ver detalles</button>
-            </div> */}
+                <p>Stock: {item?.stock}</p>
+            </div>
         </div>
     )
 }

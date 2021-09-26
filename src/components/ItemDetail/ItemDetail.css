@@ -1,0 +1,35 @@
+/* CSS PARA ITEM DETAIL */
+
+.CardDetail{
+    width: 90%;
+    border: 1px solid grey;
+    margin: 10px;
+    background-color: rgb(238, 237, 169);
+    padding: 10px;
+    display: flex;
+}
+.CardDetail__img{
+    width: 50%;
+}
+.CardDetail__info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.CardDetail__info--title{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.CardDetail__info--description{
+    font-size: 20px;
+}
+.CardDetail__info--text{
+    font-size: 20px;
+    margin: 0;
+}
+.CardDetail__info--price{
+    font-size: 20px;
+    font-weight: 600;
+}

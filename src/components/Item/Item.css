@@ -1,5 +1,5 @@
 /* CSS PARA ITEM CONTAINER */
-/* .Card{
+.Card{
     width: 200px;
     border: 1px solid grey;
     margin: 10px;
@@ -11,12 +11,12 @@
     background-color: white;
     font-size: 20px;
     padding: 10px;
-} */
+}
 
 
 /* CSS PARA ITEM DETAIL */
 
-.Card{
+/* .Card{
     width: 100%;
     border: 1px solid grey;
     margin: 10px;
@@ -41,4 +41,4 @@
 .Card__info--price{
     font-size: 30px;
     font-weight: 600;
-}
+} */

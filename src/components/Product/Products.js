@@ -1,10 +1,10 @@
 import { useState,useEffect} from 'react'
+import { useParams } from 'react-router'
 import Item from '../Item/Item'
-import './ItemList.css'
 
-const ItemList = () => {
+const Products = () => {
 
-    function delayProductos(){
+    function getProducts(){
         return new Promise ((resolve, reject) => {
         const products = [
         {id: 1, category:"Accesorios", title:"Aritos", description:"Colores varios", price:300, stock:5, pictureUrl:'../../assets/media/aritos.webp'},
@@ -18,26 +18,27 @@ const ItemList = () => {
         })
     }
 
-    const [listProducts, setListProducts] = useState([])
+
+    const { category } = useParams()
+    const [product, setProduct] = useState(undefined)
 
     useEffect(() => {
-        const showProducts = delayProductos()
-
-        showProducts.then(item => {
-            setListProducts(item)
+        const listProducts = getProducts()
+        listProducts.then( result => {
+            const product = result.find(prod => prod.category === category)
+            setProduct(product)
         })
-    }, [])
-
-    if(listProducts.length === 0){
-        return(<h1>Cargando...</h1>)
-    }
+        return(() =>{
+            setProduct(undefined)
+        })
+    }, [category])
     
     return(
-        <div className="ItemList">
-            {listProducts.map(prod => <Item key={prod.id} item={prod} />)}
+        <div>
+            <Item item={product} />
         </div>
     )
 }
 
 
-export default ItemList
+export default Products
