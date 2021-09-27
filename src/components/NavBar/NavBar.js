@@ -9,7 +9,6 @@ const NavBar = ({products}) => {
             {/* <NavLink to="/accesorios" activeClassName="NavLink">Accesorios</NavLink>
             <NavLink to="/lentes" activeClassName="NavLink">Lentes</NavLink>
             <NavLink to="/relojes" activeClassName="NavLink">Relojes</NavLink> */}
-            <NavLink to="/products" className="link">Products</NavLink>
             {products.map(cat => <NavLink key={cat.id} to={`/category/${cat.category}`} className="link">{cat.category}</NavLink>)}
             <CartWidget />
         </nav> 
