@@ -4,6 +4,7 @@ import Item from '../Item/Item'
 import './ItemList.css'
 
 const ItemList = () => {
+    
 
     function delayProductos(){
         return new Promise ((resolve, reject) => {
@@ -21,6 +22,7 @@ const ItemList = () => {
 
     useEffect(() => {
         const listProducts = delayProductos()
+        console.log(listProducts)
         listProducts.then( result => {
             const product = result.filter(prod => prod.category === category)
             setProduct(product)
@@ -29,11 +31,11 @@ const ItemList = () => {
             setProduct(undefined)
         })
     }, [category])
-    
+
     return(
         <div className="ItemList">
             {/* {listProducts.map(prod => <Item key={prod.id} item={prod} />)} */}
-            <Item item={product} />
+            <Item item={product}/>
         </div>
     )
 }
