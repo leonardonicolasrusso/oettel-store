@@ -5,7 +5,7 @@ const Item = ({item}) => {
     if(!item){
         return(<h1>Cargando...</h1>)
     }
-
+    
     return(
         <div className="Card">
             <div className="Card__info">

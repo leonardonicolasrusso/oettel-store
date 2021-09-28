@@ -3,9 +3,6 @@ import { useParams } from 'react-router'
 import Item from '../Item/Item'
 import './ItemList.css'
 
-const ItemList = () => {
-    
-
     function delayProductos(){
         return new Promise ((resolve, reject) => {
         const products = [
@@ -17,25 +14,34 @@ const ItemList = () => {
         })
     }
 
+const ItemList = () => {
+
     const { category } = useParams()
     const [product, setProduct] = useState(undefined)
+    console.log(category)
 
     useEffect(() => {
         const listProducts = delayProductos()
         console.log(listProducts)
         listProducts.then( result => {
-            const product = result.filter(prod => prod.category === category)
-            setProduct(product)
+            if(category){
+                const product = result.filter(prod => prod.category.toLowerCase() === category)
+                setProduct(product)
+            } else{
+                setProduct(result)
+            }
         })
         return(() =>{
             setProduct(undefined)
         })
     }, [category])
 
+    console.log(product)
     return(
         <div className="ItemList">
+            {!product ? 'Loading' : product.map(prod => <Item key={prod.id} item={prod} />)}
             {/* {listProducts.map(prod => <Item key={prod.id} item={prod} />)} */}
-            <Item item={product}/>
+            {/* <Item item={product}/> */}
         </div>
     )
 }
