@@ -40,8 +40,6 @@ const ItemList = () => {
     return(
         <div className="ItemList">
             {!product ? 'Loading' : product.map(prod => <Item key={prod.id} item={prod} />)}
-            {/* {listProducts.map(prod => <Item key={prod.id} item={prod} />)} */}
-            {/* <Item item={product}/> */}
         </div>
     )
 }

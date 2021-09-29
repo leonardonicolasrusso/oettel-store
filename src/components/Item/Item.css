@@ -8,6 +8,7 @@
 }
 .Card__btn{
     color: black;
+    text-decoration: none;
     background-color: white;
     font-size: 20px;
     padding: 10px;
