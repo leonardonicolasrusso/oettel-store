@@ -1,8 +1,16 @@
 import "./ItemDetail.css"
+import ItemCount from "../ItemCount/ItemCount.js"
+import { useState } from "react"
 
 const ItemDetail = ({item}) => {
 
-    console.log(item)
+    const [quantity, setQuantity] = useState(0)
+    console.log('Esta es la cantidad en Item Detail: ' + quantity)
+
+    const addToCart = (numberOfProductsAdd) =>{
+        console.log('agregado al carrito')
+        setQuantity(numberOfProductsAdd)
+    } 
     
     return(
         <div className="CardDetail">
@@ -12,9 +20,9 @@ const ItemDetail = ({item}) => {
             <div className="CardDetail__info">
                 <p className="CardDetail__info--title">{item?.title}</p>
                 <p className="CardDetail__info--description"><strong>Detalles: </strong></p>
-                <p className="CardDetail__info--text">{item?.details}</p>
+                <p className="CardDetail__info--text">{item?.description}</p>
                 <p className="CardDetail__info--price">Precio <strong>${item?.price}</strong></p>
-                <p className="CardDetail__info--price">Stock disponible: {item?.stock}</p>
+                <ItemCount quantityToAdd={addToCart} item={item}/>
             </div>
         </div> 
     )

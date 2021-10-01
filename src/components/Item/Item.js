@@ -24,7 +24,7 @@ const Item = ({item}) => {
                 <p className="Card__info--price">Precio: <strong>${item?.price}</strong></p>
                 {/* <button className="Card__btn">Ver detalles</button> */}
                 {/* {detail.map(detail => <NavLink to={`/item/${detail.id}`} className="Card__btn">Ver detalles</NavLink>)} */}
-                <NavLink to={`/item/${item.id}`} className="Card__btn">Ver detalles</NavLink>
+                <NavLink to={`/item/${item.id}`} className="Card__btn">Comprar</NavLink>
                 <p>Stock: {item?.stock}</p>
             </div>
         </div>

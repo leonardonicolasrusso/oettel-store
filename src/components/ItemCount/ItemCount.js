@@ -1,11 +1,11 @@
 import './ItemCount.css'
 import {useState} from 'react';
+import { Link } from 'react-router-dom';
 
-const ItemCount = ({nombre, stock,initial}) =>{
-    const miStock = parseInt(stock);
-    const [count, setCount] = useState(parseInt(initial))
+const ItemCount = ({item}) =>{
+    const [count, setCount] = useState(0)
     
-    const miFuncionRestar = () =>{
+    const handleRemove = () =>{
         if(count <= 0){
             console.log("No se han seleccionado unidades")
         } else{
@@ -13,35 +13,34 @@ const ItemCount = ({nombre, stock,initial}) =>{
         }
     }
 
-    const onAdd = () =>{
-        if(count === miStock){
+    const handleAdd = () =>{
+        if(count === item?.stock){
             console.log("Haz seleccionado todo el stock disponible")
         } else {
             setCount(count + 1)
         }
     }
 
-    const agregarCarrito = () =>{
+    const quantityToAdd = () =>{
         if(count === 0){
             console.log("Debes agregar al menos una unidad")
         } else {
-        console.log("Se agregaron " + count + " productos al carrito")
+        console.log("Se agregaron " + count + " productos del Item ID: '" + item?.id + "' , al carrito")
         }
     }
 
     return(
-        <div className="Card">
+        <div>
             <div>
-                <h1>{nombre}</h1>
-                <p>Stock: {stock}</p>
+                <p>Stock: {item?.stock}</p>
             </div>
             <div className="Contador">
-                <button onClick={miFuncionRestar} className="Contador__btn">-</button>
+                <button onClick={handleRemove} className="Contador__btn">-</button>
                 <p>{count}</p>
-                <button onClick={onAdd} className="Contador__btn">+</button>
+                <button onClick={handleAdd} className="Contador__btn">+</button>
             </div>
             <div>
-                <button onClick={agregarCarrito} className="Contador__btn">Agregar al carrito</button>
+                <Link to={'/cart'}><button onClick={quantityToAdd} className="Contador__btn">Agregar al carrito</button></Link>
             </div>
         </div>
     )

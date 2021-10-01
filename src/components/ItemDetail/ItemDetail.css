@@ -32,4 +32,6 @@
 .CardDetail__info--price{
     font-size: 20px;
     font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 0;
 }

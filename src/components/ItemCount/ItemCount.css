@@ -1,13 +1,7 @@
-.Card{
-    width: 200px;
-    border: 1px solid grey;
-    margin: 10px;
-    background-color: rgb(141, 216, 145);
-}
 .Contador{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     border-radius: 30px;
-    background-color: white;
+    /* background-color: white; */
     display: flex;
     justify-content: center;
     margin: 10px;

@@ -18,11 +18,9 @@ const ItemList = () => {
 
     const { category } = useParams()
     const [product, setProduct] = useState(undefined)
-    console.log(category)
 
     useEffect(() => {
         const listProducts = delayProductos()
-        console.log(listProducts)
         listProducts.then( result => {
             if(category){
                 const product = result.filter(prod => prod.category.toLowerCase() === category)
@@ -36,7 +34,6 @@ const ItemList = () => {
         })
     }, [category])
 
-    console.log(product)
     return(
         <div className="ItemList">
             {!product ? 'Loading' : product.map(prod => <Item key={prod.id} item={prod} />)}

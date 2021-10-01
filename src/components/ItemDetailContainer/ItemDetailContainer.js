@@ -22,14 +22,11 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         const showProducts = getProducts()
-        console.log(showProducts)
         showProducts.then(item => {
             const product = item.find(prod => prod.id === parseInt(id))
             setListProducts(product)
         })
     },[id])
-
-    console.log(typeof(id))
 
     return (
         <div>   
