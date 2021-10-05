@@ -3,6 +3,11 @@ import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import Cart from './components/Cart/Cart';
+import Notification from './components/Notification/Notification';
+import { CartContext } from '../src/Context/CartContext'
+import { NotificationCartContextProvider } from './Context/NotificationCartContext';
+import { useEffect, useState } from 'react';
 
 
 function App() {
@@ -13,33 +18,39 @@ function App() {
   {id: 3, category:"relojes", titel:"Reloj Dama", description:"Sumergible", price:800, stock:30, pictureUrl:'../../assets/media/reloj-dama.webp'}
   ]
 
+  const [user, setUser] = useState()
+
+  useEffect(()=> {
+    setTimeout(()=>{
+      setUser('10')
+    }, 2000)
+  })
+
   return (
+    <NotificationCartContextProvider>
+
       <BrowserRouter>
-        <NavBar products={products}/>
-        <Switch>
-          <Route exact path="/">
-            <ItemListContainer />
-          </Route>
-          <Route path="/category/:category">
-            <ItemListContainer />
-          </Route>
-          <Route path="/item/:id">
-            <ItemDetailContainer />
-          </Route>
-          <Route path="/cart">
-            <h1>Cart</h1>
-          </Route>
-          {/* <Route path="/accesorios">
-            <ItemDetailContainer />  
-          </Route>
-          <Route path="/lentes">
-            <ItemListContainer />
-          </Route>
-          <Route path="/relojes">
-            <ItemDetailContainer />  
-          </Route> */}
-        </Switch>
+        <CartContext.Provider value={user}>
+          <NavBar products={products}/>
+        </CartContext.Provider>
+            <Notification />
+              <Switch>
+                <Route exact path="/">
+                  <ItemListContainer />
+                </Route>
+                <Route path="/category/:category">
+                  <ItemListContainer />
+                </Route>
+                <Route path="/item/:id">
+                  <ItemDetailContainer />
+                </Route>
+                <Route path="/cart">              
+                    <Cart />
+                </Route>
+              </Switch>
       </BrowserRouter>
+
+    </NotificationCartContextProvider>
   );
 }
 

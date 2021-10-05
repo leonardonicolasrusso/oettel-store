@@ -10,7 +10,7 @@ const NavBar = ({products}) => {
             <NavLink to="/lentes" activeClassName="NavLink">Lentes</NavLink>
             <NavLink to="/relojes" activeClassName="NavLink">Relojes</NavLink> */}
             {products.map(cat => <NavLink key={cat.id} to={`/category/${cat.category}`} className="link">{cat.category}</NavLink>)}
-            <Link to={'/cart'}><CartWidget /></Link> 
+            <Link to={'/cart'} style={{textDecoration:"none"}} ><CartWidget /></Link> 
         </nav> 
     )
 }
