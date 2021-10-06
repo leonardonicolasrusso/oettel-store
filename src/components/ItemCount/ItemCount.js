@@ -2,7 +2,7 @@ import './ItemCount.css'
 import {useState, useContext} from 'react';
 import CartContextNotification from '../../Context/NotificationCartContext';
 
-const ItemCount = ({item, addProdFunction, itemsAdded}) =>{
+const ItemCount = ({item, productsAdded, addProdFunction}) =>{
     const [count, setCount] = useState(0)
     const { setNotificacion } = useContext(CartContextNotification)
     
@@ -29,11 +29,12 @@ const ItemCount = ({item, addProdFunction, itemsAdded}) =>{
         } else {
         console.log("Se agregaron " + count + " productos del Item ID: '" + item?.id + "' , al carrito")
         }
-        // const newItem = {
-        //     ...item,
-        //     quantity: count 
-        // }
-        // addProdFunction([...itemsAdded, newItem])
+        const newItem = {
+            ...item,
+            quantity: count 
+        }
+        addProdFunction([...productsAdded, newItem])
+        console.log(addProdFunction)
         setNotificacion('success', `${item.title} ha sido agregado al carrito`)
     }
 

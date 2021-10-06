@@ -15,7 +15,7 @@ function getProducts(){
     })
 }
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({productsAdded, addProdFunction}) => {
 
     const {id} = useParams()
     const [listProducts, setListProducts] = useState([])
@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
         <div>   
             <h1>Item detail Container</h1>
             <div>
-                <ItemDetail key={id} item={listProducts} />
+                <ItemDetail key={id} item={listProducts} productsAdded={productsAdded} addProdFunction={addProdFunction}/>
             </div>
         </div>
     )

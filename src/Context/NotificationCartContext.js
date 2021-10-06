@@ -7,6 +7,8 @@ export const NotificationCartContextProvider = ({children}) => {
     const [message, setMessage] = useState('')
     const [severity, setSeverity] = useState('')
 
+    // ESTADO PARA GUARDAD INFO, DE PRODUCTOS AGREGADOS
+
     const setNotificacion = (severity, message) =>{
         setMessage(message)
         setSeverity(severity)

@@ -18,6 +18,8 @@ function App() {
   {id: 3, category:"relojes", titel:"Reloj Dama", description:"Sumergible", price:800, stock:30, pictureUrl:'../../assets/media/reloj-dama.webp'}
   ]
 
+  const [cartProducts, setCartProduct] = useState([])
+
   const [user, setUser] = useState()
 
   useEffect(()=> {
@@ -31,7 +33,7 @@ function App() {
 
       <BrowserRouter>
         <CartContext.Provider value={user}>
-          <NavBar products={products}/>
+          <NavBar products={products} cartProducts={cartProducts}/>
         </CartContext.Provider>
             <Notification />
               <Switch>
